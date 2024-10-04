@@ -1,0 +1,63 @@
+.home{
+    width: 75%;
+    
+    h1{
+        text-align: center;
+    }
+    .homeContainer{
+        width: 80%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+
+        .basicStatsHeading{
+           font-size: 1.2rem;
+           grid-column-start:1;
+           grid-column-end: 4;
+           font-weight: 500;
+        }
+
+        .homeAbout{
+            border-radius: 10px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            padding: 20px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            margin-top: 50px;
+            h2{
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+        }
+    }
+    .basicStatsContainer{
+        border-radius: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        padding: 20px;
+        margin: 10px;
+        margin-top: 150px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 40px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        .basicStatsBox{
+            background: linear-gradient(135deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+            color: white;
+            font-weight: 500;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            font-size: 1.15rem;
+            transition: all 0.2s ease-in-out;
+            p{
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+        }
+        .basicStatsBox:hover{
+            transform: scale(1.2);
+        }
+    }
+}

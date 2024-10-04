@@ -1,0 +1,51 @@
+.booksSearchResultContainer{
+    box-sizing: border-box;
+    width: 75%;
+    padding-left: 10%;
+    padding-right: 10%;
+    h2{
+        color: var(--nav-blue);
+        font-size: 1.7rem;
+    }
+    .optionsContainer{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        padding: 10px;
+        gap: 30px;
+
+        div{
+            min-height: 150px;
+        }
+
+        .bookInfo{
+            grid-row-start: 1;
+            grid-row-end: 3;
+            border-radius: 10px;
+            border: 5px solid var(--nav-blue-secondary);
+            padding: 10px;
+
+            p{
+                span{
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        .issueContainer, .addCopiesContainer{
+            border-radius: 10px;
+            border: 5px solid var(--nav-blue-secondary);
+            padding: 5px;
+            form{
+                display: flex;
+                button{
+                    background-color: var(--success-green);
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    border: none;
+                    color: white;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

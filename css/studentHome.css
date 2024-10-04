@@ -1,0 +1,107 @@
+.container{
+    display: flex;
+}
+*{
+    box-sizing: border-box;
+}
+.studentSectionContainer{
+    width: 75%;
+    padding-left: 10%;
+    padding-right: 10%;
+
+    .studentSectionOptionsContainer{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-content: center;
+    }
+    
+    
+    h2{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        color: var(--nav-blue);
+        font-size: 2rem;
+        margin-bottom: 50px;
+    }
+
+
+    .studentSectionBox{
+        background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+        border-radius: 10px;
+        margin: 10px;
+        height: 170px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    #searchByIdBox{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        padding: 10px;
+        padding-top: 30px;
+        margin-top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        label{
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        form{
+            display: flex;
+            justify-content: space-around;
+            padding-inline: 10px;
+            margin-top: 20px;
+            height:40px;
+            input{
+                width: 80%;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                border: none;
+                padding-left: 10px;
+            }
+            button{
+                width: 20%;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                border: none;
+                color: white;
+                font-weight: 600;
+                background-color: var(--nav-blue);
+            }
+            button:hover{
+                cursor: pointer;
+            }
+        }
+
+    }
+    #newStudentRegistrationBox{
+        
+            a{
+                text-decoration: none;
+                
+                button{
+                    background: none;
+                    border: none;
+                    width: 100%;
+                    height: 100%;
+                    color: white;
+                    font-weight: 600;
+                    font-size: 1.35rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img{
+                        width: 30px;
+                    }
+                }
+            }
+        button:hover{
+            cursor: pointer;
+        }
+    }
+    #studentSectionBasicStats{
+        padding-left: 20px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: white;
+    }
+} 

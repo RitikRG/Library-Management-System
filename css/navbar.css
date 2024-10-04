@@ -1,0 +1,29 @@
+.navbar{
+    position: relative;
+    background: linear-gradient(135deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);  
+    width: 25%;
+    min-height: 100vh;
+    color: white;
+    
+    ul{
+        list-style: none;
+        margin-top: 40vh;
+        margin-left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+        li{
+            margin-bottom: 20px;
+            width: 100%;
+            a{
+                color: white;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1.5rem;
+                transition: all 0.2s ease-in;
+            }
+            a:hover{
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
