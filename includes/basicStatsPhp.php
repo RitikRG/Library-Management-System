@@ -1,19 +1,6 @@
-<!-- This php file contains all the variabbles of a single session -->
 
 <?php
-    $servername = "";
-    $username = "";
-    $password = "";
-    $dbname = "";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        echo "error";
-        die("Connection failed: " . $conn->connect_error);
-    }
+    include '/Applications/XAMPP/xamppfiles/htdocs/LMS/connection.php';
 
     $student_sql = "SELECT count(*) FROM STUDENT";
     $result = $conn->query($student_sql);
@@ -36,5 +23,3 @@
         $row = $result->fetch_assoc();
         $issued_books_count= $row["COUNT(*)"];
     }
-
-    $conn->close();

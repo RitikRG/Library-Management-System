@@ -11,19 +11,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     echo $copies;
 
     // Database Connection
-    $servername = "";
-    $username = "";
-    $password = "";
-    $dbname = "";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        echo "error";
-        die("Connection failed: " . $conn->connect_error);
-    }
+    
+    include '/Applications/XAMPP/xamppfiles/htdocs/LMS/connection.php';
     
     // Firstly we will check if the provided book already exists or not
 

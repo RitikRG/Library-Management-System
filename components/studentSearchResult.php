@@ -20,11 +20,8 @@
             // This if will make sure that if someone provided empty field by changing front end they cant manipulate the database
             header("Location: ./studentPage.php");
         }else{
-            // Database Connection
-            $servername = "";
-            $username = "";
-            $password = "";
-            $dbname = "";
+            
+            include '/Applications/XAMPP/xamppfiles/htdocs/LMS/connection.php';
 
 
             //Variables for data
@@ -34,14 +31,7 @@
             $student_year="Default";
             $student_books_issued="Default";
 
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            // Check connection
-            if ($conn->connect_error) {
-                echo "error";
-                die("Connection failed: " . $conn->connect_error);
-            }
+            
 
             // Search results;
 
@@ -100,7 +90,7 @@
                     </tr>
                     <?php
                         //books info 
-                        $books_sql = "SELECT * FROM `ISSUE` WHERE `Roll_No`='$student_roll_no';";
+                        $books_sql = "SELECT * FROM `ISSUE` WHERE `Roll_NO`='$student_roll_no';";
                         $issued_books_details = $conn->query($books_sql);
                         if ($issued_books_details->num_rows > 0) {
                             
@@ -128,6 +118,8 @@
                                                     <button class='returnButton' value='returnBook'>Return</button>
                                                     <input type='hidden' name='book_id' value='".$book_id."'>
                                                     <input type='hidden' name='roll_no' value='".$student_roll_no."'>
+                                                    <input type='hidden' name='date_of_issue' value='".$date_of_issue."'>
+                                                    
                                                 </form></td>";
                                         echo "</tr>";
                                     };
@@ -135,8 +127,6 @@
                                 
                             }
                         }
-
-                        $conn->close();
                     ?>
                 </table>
                 

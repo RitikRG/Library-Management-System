@@ -22,24 +22,12 @@
             header("Location: ./booksPage.php");
         }else{
             // Database Connection
-            $servername = "";
-            $username = "";
-            $password = "";
-            $dbname = "";
+            include '/Applications/XAMPP/xamppfiles/htdocs/LMS/connection.php';
 
 
             //Variables for data
             $books_in_library="Default";
             $total_copies="Default";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            // Check connection
-            if ($conn->connect_error) {
-                echo "error";
-                die("Connection failed: " . $conn->connect_error);
-            }
 
             // Search results;
 
@@ -99,8 +87,6 @@
                                     
                             }
                         }
-
-                        $conn->close();
                     ?>
                 </table>
                 

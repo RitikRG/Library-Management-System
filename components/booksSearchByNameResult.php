@@ -18,25 +18,14 @@
             header("Location: ./booksPage.php");
         }else{
             // Database Connection
-            $servername = "";
-            $username = "";
-            $password = "";
-            $dbname = "";
+            
+            include '/Applications/XAMPP/xamppfiles/htdocs/LMS/connection.php';
 
             // Variables for values
             $author="";
             $copies=0;
             $issued=0;
             $remaining=0;
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            // Check connection
-            if ($conn->connect_error) {
-                echo "error";
-                die("Connection failed: " . $conn->connect_error);
-            }
 
             // Search Reuslt 
             $search_Sql = "SELECT * FROM `BOOKS` WHERE BOOK_NAME='$book_name';";
@@ -116,8 +105,6 @@
     </div>
     
     <?php include './homeBtn.php' ?>
-
-    <?php $conn->close(); ?>
     
 </body>
 </html>

@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $student_roll_no=htmlentities($_POST['s_id']);
     $book_id=htmlentities($_POST["b_id"]);
@@ -8,10 +12,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     }else{
         // Database Connection
-        $servername = "";
-        $username = "";
-        $password = "";
-        $dbname = "";
+        $servername = "lms-database.c9qqy60ial2m.ap-southeast-2.rds.amazonaws.com";
+        $username = "admin";
+        $password = "rg12345678aws";
+        $dbname = "LMS";
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -38,6 +42,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         if ($result->num_rows> 0) {
             $row = $result->fetch_assoc();
             $issued = $row["BOOKS_ISSUED"];
+            echo $issued;
             if($issued==4){
                 $conn->close();
                 echo '<script>alert("Student has already issued maximum allowed numbers of books."); 
@@ -57,14 +62,16 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         // By this point we have made sure that the student exists, can issue more books and has issued the same book, also the option to issue a book is enabled only if we have enough copies which means that we have all the prerequisites for issuing a copy to the student.
 
         $insert_sql= "INSERT INTO `ISSUE`(`B_ID`, `ROLL_NO`, `DATE_OF_ISSUE`) VALUES ('$book_id','$student_roll_no',CURRENT_DATE());";
-        $update_student= "UPDATE `STUDENT` SET`BOOKS_ISSUED`= `BOOKS_ISSUED`+1 WHERE `ROLL_NO`='$student_roll_no';";
+        $update_student= "UPDATE `STUDENT` SET `BOOKS_ISSUED`= `BOOKS_ISSUED`+1 WHERE `ROLL_NO`='$student_roll_no';";
         
-        if($conn->query($insert_sql) and $conn->query($update_student)){
-            $conn->close();
-            echo '<script>alert("Issue Successful!!"); 
-                        window.location.href = "../components/booksPage.php";</script>';
+        if ($conn->query($insert_sql) and $conn->query($update_student)) {
+             echo '<script>alert("Issue Successful!!"); 
+                      window.location.href = "../components/booksPage.php";</script>';
+        } else {
+            // Capture and display error if the INSERT query fails
+            echo '<script>alert("Error issuing book: ' . $conn->error . '"); 
+                  window.location.href = "../components/booksPage.php";</script>';
         }
-    
         $conn->close();
     }
 }else{

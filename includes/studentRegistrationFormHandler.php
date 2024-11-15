@@ -12,19 +12,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         header("Location: ../components/newStudentRegistration.php");
     }else{
         // Database Connection
-        $servername = "";
-        $username = "";
-        $password = "";
-        $dbname = "";
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            echo "error";
-            die("Connection failed: " . $conn->connect_error);
-        }
+        include '/Applications/XAMPP/xamppfiles/htdocs/LMS/connection.php';
 
         $search_Current_Sql = "SELECT * FROM `STUDENT` WHERE ROLL_NO='$studentRollNo';";
         $result = $conn->query($search_Current_Sql);
@@ -42,10 +30,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                   window.location.href = "../components/newStudentRegistration.php";</script>';
             }
         }
-
-
-
-        $conn->close();
     }
     
 }else{
